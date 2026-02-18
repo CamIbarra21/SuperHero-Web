@@ -5,6 +5,6 @@
 <div class="heroes-grid">
   @for (hero of heroes; track hero.id) {
     <!--<mat-grid-tile>{{ hero.name }}</mat-grid-tile>-->
-    <app-hero-card [hero]="hero"></app-hero-card>
+    <app-hero-card [hero]="hero" mode="home" (favorite)="onFavorite($event)"></app-hero-card>
     }
 </div>

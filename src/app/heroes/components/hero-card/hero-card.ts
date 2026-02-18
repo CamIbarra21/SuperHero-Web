@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
@@ -11,5 +11,23 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class HeroCard {
   @Input() hero: any;
+  @Input() mode: 'home' | 'favorites' = 'home';
 
+  @Output() favorite = new EventEmitter<any>();
+
+  addFavorite() {
+    this.favorite.emit(this.hero);
+  }
+
+  getOtherHero() {
+
+  }
+
+  showHeroInfo() {
+
+  }
+
+  deleteHero() {
+
+  }
 }

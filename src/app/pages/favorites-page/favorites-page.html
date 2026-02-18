@@ -1,0 +1,9 @@
+<div class="home-header">
+    <h1>Do you like them?</h1>
+</div>
+<div class="heroes-grid">
+  @for (fav of favorites; track fav.id) {
+    <!--<mat-grid-tile>{{ hero.name }}</mat-grid-tile>-->
+    <app-hero-card [hero]="fav" mode="favorites"></app-hero-card>
+    }
+</div>

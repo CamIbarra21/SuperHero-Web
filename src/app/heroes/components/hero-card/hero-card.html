@@ -11,7 +11,13 @@
     <p>Occupation: {{ hero.work.occupation }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button matButton>ADD FAVORITE</button>
-    <button matButton>OTHER</button>
+    @if (mode === 'home') {
+      <button matButton (click)="addFavorite()">ADD FAVORITE</button>
+      <button matButton (click)="getOtherHero()">OTHER</button>
+    } @else {
+      <button matButton (click)="showHeroInfo()">SHOW INFO</button>
+      <button matButton (click)="deleteHero()">DELETE</button>
+    }
+    
   </mat-card-actions>
 </mat-card>
