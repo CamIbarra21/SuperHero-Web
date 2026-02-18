@@ -4,6 +4,6 @@
 <div class="heroes-grid">
   @for (fav of favorites; track fav.id) {
     <!--<mat-grid-tile>{{ hero.name }}</mat-grid-tile>-->
-    <app-hero-card [hero]="fav" mode="favorites" (heroDel)="onDeleteHero($event)"></app-hero-card>
+    <app-hero-card [hero]="fav" mode="favorites" (heroDel)="onDeleteHero($event)" (heroInfo)="infoBottomSheet($event)"></app-hero-card>
     }
 </div>
