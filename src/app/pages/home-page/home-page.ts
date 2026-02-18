@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SuperHero } from '../../services/super-hero';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HeroCard } from '../../heroes/components/hero-card/hero-card';
 @Component({
   selector: 'app-home-page',
-  imports: [MatGridListModule],
+  imports: [MatGridListModule, HeroCard],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })

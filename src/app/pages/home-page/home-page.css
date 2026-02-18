@@ -1,0 +1,20 @@
+.home-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.home-header > h3 {
+    font-style: italic;
+}
+
+.heroes-grid {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    justify-content: space-evenly;
+    row-gap: 1rem;
+    padding-bottom: 4rem;
+}

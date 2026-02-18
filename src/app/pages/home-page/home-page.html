@@ -1,5 +1,10 @@
-<mat-grid-list cols="4" rowHeight="2:1">
+<div class="home-header">
+    <h1>All heroes for you</h1>
+    <h3>Pick up your favorites</h3>
+</div>
+<div class="heroes-grid">
   @for (hero of heroes; track hero.id) {
-    <mat-grid-tile>{{ hero.name }}</mat-grid-tile>
+    <!--<mat-grid-tile>{{ hero.name }}</mat-grid-tile>-->
+    <app-hero-card [hero]="hero"></app-hero-card>
     }
-</mat-grid-list>
+</div>
