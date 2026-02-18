@@ -1,0 +1,17 @@
+<mat-card class="hero-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+    <mat-card-subtitle> {{ hero.biography.publisher }} </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="hero.image.url" alt="Hero photo">
+  <mat-card-content>
+    <p>Gender: {{ hero.appearance.gender }}</p>
+    <p>Race: {{ hero.appearance.race }}</p>
+    <p>Occupation: {{ hero.work.occupation }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton>ADD FAVORITE</button>
+    <button matButton>OTHER</button>
+  </mat-card-actions>
+</mat-card>
