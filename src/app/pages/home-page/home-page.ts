@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SuperHero } from '../../services/super-hero';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HeroCard } from '../../heroes/components/hero-card/hero-card';
+import { Favorites } from '../../services/favorites';
 @Component({
   selector: 'app-home-page',
   imports: [MatGridListModule, HeroCard],
@@ -11,7 +12,7 @@ import { HeroCard } from '../../heroes/components/hero-card/hero-card';
 export class HomePage {
   heroes: any[] = [];
 
-  constructor (private superHero: SuperHero) {}
+  constructor (private superHero: SuperHero, private favoritesServide: Favorites) {}
 
   ngOnInit() {
     const ids: number[] = this.generateRdmIds(20);
@@ -21,6 +22,10 @@ export class HomePage {
         this.heroes.push(hero)
       });
     });
+  }
+
+  onFavorite(hero: any) {
+    this.favoritesServide.addFavorite(hero);
   }
 
   generateRdmIds(n: number): number[] {
