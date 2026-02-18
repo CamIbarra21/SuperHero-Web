@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class HeroCard {
   @Input() hero: any;
+  @Input() mode: 'home' | 'favorites' = 'home';
 
   @Output() favorite = new EventEmitter<any>();
 
@@ -19,6 +20,14 @@ export class HeroCard {
   }
 
   getOtherHero() {
-    
+
+  }
+
+  showHeroInfo() {
+
+  }
+
+  deleteHero() {
+
   }
 }

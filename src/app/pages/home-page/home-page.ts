@@ -9,7 +9,7 @@ import { Favorites } from '../../services/favorites';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
-export class HomePage {
+export class HomePage implements OnInit {
   heroes: any[] = [];
 
   constructor (private superHero: SuperHero, private favoritesServide: Favorites) {}
