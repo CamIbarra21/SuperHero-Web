@@ -19,4 +19,8 @@ export class FavoritesPage implements OnInit {
       this.favorites = favs;
     });  
   }
+
+  onDeleteHero(heroId: number) {
+    this.favoriteService.removeFavorite(heroId);
+  }
 }
