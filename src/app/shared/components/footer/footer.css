@@ -1,0 +1,18 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mat-sys-on-primary-container);
+    color: white;
+    font-size: medium;
+}
+
+.spacer {
+    width: 3%;
+}
+
+mat-icon {
+    color: white;
+}
