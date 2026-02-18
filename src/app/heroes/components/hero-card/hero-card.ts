@@ -14,6 +14,7 @@ export class HeroCard {
   @Input() mode: 'home' | 'favorites' = 'home';
 
   @Output() favorite = new EventEmitter<any>();
+  @Output() heroDel = new EventEmitter<number>();
 
   addFavorite() {
     this.favorite.emit(this.hero);
@@ -28,6 +29,6 @@ export class HeroCard {
   }
 
   deleteHero() {
-
+    this.heroDel.emit(this.hero.id);
   }
 }

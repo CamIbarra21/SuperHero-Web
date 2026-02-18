@@ -10,7 +10,6 @@ export class Favorites {
 
   addFavorite(hero: any) {
     this.favorites.push(hero);
-    console.log("Fav: ", hero);
     this.favorites$.next(this.favorites);
   }
 
