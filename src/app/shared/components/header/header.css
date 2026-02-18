@@ -1,0 +1,30 @@
+
+.app-header-elem {
+    display: flex;
+    justify-content:space-between ;
+    background-color: var(--mat-sys-on-primary-container);
+    color: var(--mat-sys-primary-container);
+    height: 10%;
+}
+
+mat-icon {
+    color: var(--mat-sys-primary-container);
+}
+
+.extra-space {
+    width: 1rem;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+}
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.right-button-row > a {
+    background-color: var(--mat-sys-on-primary-containers);
+    color: var(--mat-sys-primary-container);
+}
