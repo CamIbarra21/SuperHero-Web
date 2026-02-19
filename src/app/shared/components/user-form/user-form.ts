@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import ValidateForm from '../../../helpers/validateForm';
+import { UsersJph } from '../../../services/users-jph';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -21,19 +23,21 @@ export class UserForm implements OnInit {
 
   companies: string[] = ['Deckow-Crist', 'Romaguera-Jacobson', 'Robel-Corkery', 'Keebler LLC', 'Considine-Lockman', 'Abernathy Group'];
 
-  constructor (private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder, private userService: UsersJph, private router: Router) {}
 
   userForm!: FormGroup;
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
-      name: [ '', [Validators.required, Validators.pattern("[a-zA_Z ]+")] ],
+      name: [ '', [Validators.required, Validators.pattern("[a-zA-Z ]+")] ],
       username: [ '', [Validators.required, Validators.minLength(3), Validators.maxLength(15)] ],
       email: [ '', Validators.required ],
       street: [ '' ],
       suite: [ '' ],
       city: [ '' ],
-      company: [ '' ]
+      company: [ '' ],
+      phone: [ null, [Validators.max(999999999), Validators.min(100000000)] ],
+      website: [ '', Validators.pattern("https?://[a-zA-Z0-9._-]+.com") ]
     })
 
     if (this.initialData) {
@@ -46,10 +50,34 @@ export class UserForm implements OnInit {
     return this.userForm.value;
   }
 
-  userSignUp() {
+  async userSignUp() {
     console.log(this.userForm)
     if (this.userForm.valid) {
-      console.log("Valido sign up");
+      const userData = this.userForm.value;
+
+      try {
+        const user = {
+          "name": userData.name,
+          "username": userData.username,
+          "email": userData.email,
+          "address": {
+              "street": userData.street,
+              "suite": userData.suite,
+              "city": userData.city
+          },
+          "phone": "024-648-3804",
+          "website": "ambrose.net",
+          "company": {
+              "name": userData.company
+          }
+        }
+        const res = await this.userService.createUser(user);
+        console.log('Usuario registrado:', res.data);
+        this.router.navigate(['login']);
+      } catch {
+        console.log('Otro error xd');
+      }      
+
     } else {
       console.log("No valido basura");
       ValidateForm.validateAllFields(this.userForm);
