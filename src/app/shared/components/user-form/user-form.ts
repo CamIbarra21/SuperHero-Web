@@ -65,8 +65,8 @@ export class UserForm implements OnInit {
               "suite": userData.suite,
               "city": userData.city
           },
-          "phone": "024-648-3804",
-          "website": "ambrose.net",
+          "phone": userData.phone,
+          "website": userData.website,
           "company": {
               "name": userData.company
           }

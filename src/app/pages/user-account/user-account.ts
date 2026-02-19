@@ -24,6 +24,7 @@ export class UserAccount implements OnInit{
   }
   
   updateInfo() {
+    this.router.navigate([`user/${this.user.id}/account/update`]);
   }
 
   async deleteUser() {

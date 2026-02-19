@@ -1,0 +1,16 @@
+a {
+    padding-bottom: 4rem;
+    font-size: 20px;
+}
+
+.update-account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+app-user-form {
+    width: 80%;
+}
