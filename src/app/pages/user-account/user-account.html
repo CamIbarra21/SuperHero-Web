@@ -1,0 +1,36 @@
+<div class="account-info">
+    <div class="account-header">
+        <img src="https://img.icons8.com/nolan/1200/user-default.jpg" alt="Default profile">
+        <section class="right-section">
+            <h1>{{ user.name }}</h1>
+            <h3>{{ user.username }}</h3>
+            <button matButton="filled" (click)="updateInfo()">UPDATE</button>
+            <button matButton="elevated" (click)="deleteUser()">DELETE ACCOUNT</button>
+            <button matButton="elevated" (click)="signOut()">SIGN OUT</button>
+        </section>                
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="gen-info">
+        <h2>General Information</h2>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Address:</b> {{ user.address.street }}, {{ user.address.suite }}, {{ user.address.city }}</p>
+        <p><b>Company:</b> Working for {{ user.company.name }}</p>
+        <p><b>Personal phrase:</b> {{ user.company.catchPhrase }}</p>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="contact">
+        <h2>Contact</h2>
+        <div class="contact-elem">
+            <mat-icon>phone_enabled</mat-icon><p>{{ user.phone }}</p>
+        </div>
+        <div class="contact-elem">
+            <mat-icon>web</mat-icon><p>{{ user.website }}</p>
+        </div>  
+    </div>
+</div>
+
+
