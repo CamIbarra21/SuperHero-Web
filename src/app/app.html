@@ -1,11 +1,11 @@
-@if (actualRoute !== '/' && actualRoute !== '/login')
+@if (actualRoute !== '/' && actualRoute !== '/login' && actualRoute !== '/sign-up')
 {
     <app-header />
 }
 
 <router-outlet />
 
-@if (actualRoute !== '/login')
+@if (actualRoute !== '/login' && actualRoute !== '/sign-up')
 {
     <app-footer />
 }
