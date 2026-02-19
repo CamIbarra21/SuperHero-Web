@@ -1,0 +1,8 @@
+<div class="update-account">
+    <h1>Update yourself!</h1>
+
+    <app-user-form [initialData]="initialData" [userId]="user.id" typeButton="update" />
+
+    <a [routerLink]="['/user', user.id, 'account']" routerLinkActive="active">Go back?</a>
+</div>
+

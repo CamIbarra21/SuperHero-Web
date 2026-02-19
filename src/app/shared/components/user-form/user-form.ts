@@ -20,6 +20,7 @@ import { Router } from '@angular/router';
 export class UserForm implements OnInit {
   @Input() initialData: any;
   @Input() typeButton: 'sign-up' | 'update' = 'sign-up';
+  @Input() userId: number = 0;
 
   companies: string[] = ['Deckow-Crist', 'Romaguera-Jacobson', 'Robel-Corkery', 'Keebler LLC', 'Considine-Lockman', 'Abernathy Group'];
 
@@ -65,8 +66,8 @@ export class UserForm implements OnInit {
               "suite": userData.suite,
               "city": userData.city
           },
-          "phone": "024-648-3804",
-          "website": "ambrose.net",
+          "phone": userData.phone,
+          "website": userData.website,
           "company": {
               "name": userData.company
           }
@@ -84,9 +85,35 @@ export class UserForm implements OnInit {
     }
   }
 
-  userUpdate() {
+  async userUpdate() {
+
+    console.log(this.userForm)
     if (this.userForm.valid) {
-      console.log("Valido update");
+      const userData = this.userForm.value;
+
+      try {
+        const user = {
+          "name": userData.name,
+          "username": userData.username,
+          "email": userData.email,
+          "address": {
+              "street": userData.street,
+              "suite": userData.suite,
+              "city": userData.city
+          },
+          "phone": userData.phone,
+          "website": userData.website,
+          "company": {
+              "name": userData.company
+          }
+        }
+        const res = await this.userService.updateUser(this.userId, user);
+        console.log('Usuario actualizado:', res.data);
+        this.router.navigate([`user/${this.userId}/account`]);
+      } catch {
+        console.log('Otro error xddd');
+      }      
+
     } else {
       console.log("No valido basura");
       ValidateForm.validateAllFields(this.userForm);
