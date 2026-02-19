@@ -4,7 +4,7 @@ import { HomePage } from './home-page/home-page';
 import { FavoritesPage } from './favorites-page/favorites-page';
 
 const routes: Routes = [
-  { path: '', component: HomePage },
+  { path: 'home', component: HomePage },
   { path: 'favorites', component: FavoritesPage}
 ];
 
