@@ -1,3 +1,11 @@
-<app-header />
+@if (actualRoute !== '/' && actualRoute !== '/login')
+{
+    <app-header />
+}
+
 <router-outlet />
-<app-footer />
+
+@if (actualRoute !== '/login')
+{
+    <app-footer />
+}

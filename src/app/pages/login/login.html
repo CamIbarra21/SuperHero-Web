@@ -1,0 +1,17 @@
+<h3>Sign up</h3>
+<form method="post" [formGroup]="loginForm">
+    <mat-card-content>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput>
+            <mat-icon matSuffix>person_2</mat-icon>
+            <mat-hint *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</mat-hint>
+        </mat-form-field>
+       
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button [disabled]="loginForm.invalid" matButton="filled" (click)="onLogin()" type="submit">Login</button>
+    </mat-card-actions>
+</form>
